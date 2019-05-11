@@ -1,7 +1,6 @@
 from livewires import games, color
 import random
 import pygame
-import json
 import numpy as np
 
 games.init(screen_width=564, screen_height=423, fps=30)
@@ -46,17 +45,6 @@ class Dino(games.Animation):
         self.dy = 0
         self.points = None
         self.d = {'score': None}
-
-    '''def delete(self):
-        open('best.txt', 'w').close()
-
-    def open_score(self):
-        with open('best.txt') as f:
-            self.points = json.load(f)
-            if self.points['score'] > self.score.value:
-                self.delete()
-                self.points['score'] = self.score.value
-            json.dump(self.points, f)'''
 
     def update(self):
         if games.keyboard.is_pressed(games.K_SPACE):
@@ -224,10 +212,10 @@ def main():
     the_dino = Dino()
     fire = Fire()
     the_dino.add_fire(fire)
-    the_Asteroid = Asteroid()
+    the_asteroid = Asteroid()
     games.screen.add(the_gr)
     games.screen.add(the_dino)
-    games.screen.add(the_Asteroid)
+    games.screen.add(the_asteroid)
 
     games.mouse.is_visible = False
 
